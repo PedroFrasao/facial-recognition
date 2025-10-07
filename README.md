@@ -17,7 +17,7 @@ The original goal was to develop a facial recognition model for unlocking my com
 
 ## Final Thoughts
 
-I believe that such a model could be implemented in a more flexible operating system. This project showcases my ability to develop innovative solutions in Artificial Intelligence.
+I believe that such a model could be implemented in a more flexible operating system.
 
 ---
 
