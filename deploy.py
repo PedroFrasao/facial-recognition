@@ -8,7 +8,6 @@ from mtcnn import MTCNN
 import tensorflow as tf
 from tensorflow.keras.layers import Dropout
 
-# Define a camada personalizada
 l2 = tf.keras.regularizers.L2
 
 @tf.keras.utils.register_keras_serializable()
@@ -37,14 +36,11 @@ class CustomMaxPooling(tf.keras.layers.Layer):
         })
         return config
 
-# Carrega o modelo de reconhecimento facial
 model_path = 'C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\face_Security\\prime_model.keras'
 model = load_model(model_path, custom_objects={'CustomMaxPooling': CustomMaxPooling})
 
-# Inicializa o detector de rostos MTCNN
 detector = MTCNN()
 
-# Função para detectar e cortar o rosto
 def detect_and_crop_face(img):
     faces = detector.detect_faces(img)
     if faces:
@@ -54,7 +50,6 @@ def detect_and_crop_face(img):
         return face
     return None
 
-# Função de reconhecimento facial
 def facial_recognition():
     cap = cv2.VideoCapture(0)
     ret, frame = cap.read()
@@ -71,7 +66,6 @@ def facial_recognition():
         return prediction <= 0.1  
     return False
 
-# Função para monitorar o Discord e verificar o rosto
 def monitor_discord():
     while True:
         discord_running = any("Discord" in p.name() for p in psutil.process_iter())
@@ -94,6 +88,7 @@ def monitor_discord():
 
 
 monitor_discord()
+
 
 
 
